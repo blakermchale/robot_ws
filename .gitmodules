@@ -1,0 +1,16 @@
+[submodule "src/mavros"]
+	path = src/mavros
+	url = git@github.com:mavlink/mavros.git
+	branch = ros2
+[submodule "src/PX4-Autopilot"]
+	path = src/PX4-Autopilot
+	url = git@github.com:PX4/PX4-Autopilot.git
+	branch = master
+[submodule "src/airsim_utils"]
+	path = src/airsim_utils
+	url = git@github.com:blakermchale/airsim_utils.git
+	branch = main
+[submodule "src/robot-control"]
+	path = src/robot-control
+	url = git@github.com:blakermchale/robot-control.git
+	branch = main
