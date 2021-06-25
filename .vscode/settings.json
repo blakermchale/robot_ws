@@ -6,11 +6,11 @@
         }
     },
     "terminal.integrated.defaultProfile.linux": "ws",
-    "python.autoComplete.extraPaths": [
+    "python.analysis.extraPaths": [
         "/opt/ros/foxy/lib/python3.8/site-packages",
-        "${workspaceFolder}/install/*/lib/python3.8/site-packages",
         "${workspaceFolder}/install/robot_control/lib/python3.8/site-packages",
         "${workspaceFolder}/install/airsim_utils/lib/python3.8/site-packages",
+        "${workspaceFolder}/install/robot_control_interfaces/lib/python3.8/site-packages",
         "${env:HOME}/.venv/robot/lib/python3.8/site-packages"
     ],
     "C_Cpp.default.includePath": [
@@ -18,10 +18,8 @@
         "/usr/include",
         "/usr/local/include",
         "/opt/ros/foxy/include",
-        "${workspaceFolder}/src/aruco_ros/aruco_ros/include",
-        "${workspaceFolder}/src/behavior_trees_ros2/include",
-        "${workspaceFolder}/src/behavior_trees_ros2/libs/behavior-trees/include",
-        "${workspaceFolder}/install/*/include",
+        "${workspaceFolder}/src/robot_behavior_tree/include",
+        "${workspaceFolder}/install/robot_control_interfaces/include",
     ],
     "files.associations": {
         "cstddef": "cpp",
@@ -96,12 +94,5 @@
         "unordered_set": "cpp"
     },
     "cmake.configureOnOpen": false,
-    "python.analysis.extraPaths": [
-        "/opt/ros/foxy/lib/python3.8/site-packages",
-        "${workspaceFolder}/install/robot_control/lib/python3.8/site-packages",
-        "${workspaceFolder}/install/airsim_utils/lib/python3.8/site-packages",
-        "${workspaceFolder}/install/*/lib/python3.8/site-packages",
-        "${env:HOME}/.venv/robot/lib/python3.8/site-packages"
-    ],
     "git.ignoreLimitWarning": true
 }

@@ -14,3 +14,6 @@
 	path = src/robot-control
 	url = git@github.com:blakermchale/robot-control.git
 	branch = main
+[submodule "src/robot_behavior_tree"]
+	path = src/robot_behavior_tree
+	url = git@github.com:blakermchale/robot_behavior_tree.git
