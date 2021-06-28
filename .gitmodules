@@ -18,3 +18,7 @@
 	path = src/robot_behavior_tree
 	url = git@github.com:blakermchale/robot_behavior_tree.git
 	branch = main
+[submodule "src/gym-pybullet-drones"]
+	path = src/gym-pybullet-drones
+	url = https://github.com/utiasDSL/gym-pybullet-drones.git
+	branch = master

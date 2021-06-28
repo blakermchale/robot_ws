@@ -11,7 +11,7 @@ case $ROBOT_TYPE in
             cd $_ws/src/PX4-Autopilot
             DONT_RUN=1 make px4_sitl gazebo
             cd $_ws
-            skipped_pkgs="px4"
+            skipped_pkgs="px4 gym_pybullet_drones"
         ;;
     esac
     ;;&
@@ -35,6 +35,9 @@ if [ -z "$1" ]; then
 else
     colcon build --symlink-install --cmake-args $_cmake_args --packages-skip $skipped_pkgs --packages-select $1
 fi
+
+# Install non-ros python package
+pip3 install -e src/gym-pybullet-drones
 
 # Fix symlink for python3 files venv
 var="#\!\/usr\/bin\/env python3"
