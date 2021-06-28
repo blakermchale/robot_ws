@@ -2,7 +2,7 @@
     "terminal.integrated.profiles.linux": {
         "ws": {
             "path": "bash",
-            "args": ["--rcfile", "/home/bmchale/git/personal/robot_ws/.profile"]
+            "args": ["--rcfile", "${workspaceFolder}/.profile"]
         }
     },
     "terminal.integrated.defaultProfile.linux": "ws",
@@ -94,5 +94,6 @@
         "unordered_set": "cpp"
     },
     "cmake.configureOnOpen": false,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "${env:HOME}/.venv/robot/bin/python"
 }
