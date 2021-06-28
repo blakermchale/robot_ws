@@ -9,7 +9,6 @@ export PX4_AUTOPILOT=$_ws/src/PX4-Autopilot
 source $ROBOT_VENV/bin/activate
 
 # ROS package setup
-source /opt/ros/foxy/setup.bash
 source $_ws/install/setup.bash
 
 # Nice colcon commands for switching to packages
