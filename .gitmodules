@@ -18,3 +18,7 @@
 	path = src/robot_behavior_tree
 	url = git@github.com:blakermchale/robot_behavior_tree.git
 	branch = main
+[submodule "src/airsim-ros"]
+	path = src/airsim-ros
+	url = git@github.com:blakermchale/airsim-ros.git
+	branch = main
