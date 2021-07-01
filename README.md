@@ -2,10 +2,9 @@
 General ROS2 workspace for performing robot control  
 ## Install  
 ### 1. ROS install
+Install all ROS packages and dependencies of this workspace:
 ```bash
-sudo apt install ros-foxy-mavlink ros-foxy-geographic-msgs libgeographic-dev ros-foxy-eigen-stl-containers ros-foxy-diagnostic-updater ros-foxy-behaviortree-cpp-v3 ros-foxy-navigation2
-sudo apt install libignition-common3-graphics-dev
-sudo apt install  python3-venv python-is-python3 python3-colcon-common-extensions
+./scripts/install_ws.sh
 ```   
 ### 2. Python3 and venv install
 1. Create virtual environment

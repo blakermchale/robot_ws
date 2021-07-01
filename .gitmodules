@@ -22,3 +22,6 @@
 	path = src/airsim-ros
 	url = git@github.com:blakermchale/airsim-ros.git
 	branch = main
+[submodule "src/Groot"]
+	path = src/Groot
+	url = git@github.com:BehaviorTree/Groot.git
