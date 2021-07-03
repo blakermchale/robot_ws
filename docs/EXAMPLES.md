@@ -9,7 +9,7 @@ Run (separate terminals):
 ros2 launch robot_behavior_tree runner.launch.py
 ```
 ```bash
-ros2 action send_goal /drone_0/run_tree robot_control_interfaces/action/RunBT {}
+ros2 action send_goal /drone_0/run_bt robot_control_interfaces/action/RunBT {}
 ```
 ## Groot example
 1. Run `Groot`:
