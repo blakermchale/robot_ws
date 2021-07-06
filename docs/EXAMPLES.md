@@ -6,7 +6,7 @@ ros2 launch robot_control run_vehicles.launch.py
 ## `robot_behavior_tree` example
 Run (separate terminals):
 ```bash
-ros2 launch robot_behavior_tree runner.launch.py
+ros2 launch robot_behavior_tree runner.launch.py namespace:=drone_0
 ```
 ```bash
 ros2 action send_goal /drone_0/run_bt robot_control_interfaces/action/RunBT {}
