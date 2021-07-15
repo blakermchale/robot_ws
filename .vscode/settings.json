@@ -7,7 +7,7 @@
     },
     "terminal.integrated.defaultProfile.linux": "ws",
     "python.analysis.extraPaths": [
-        "/opt/ros/foxy/lib/python3.8/site-packages",
+        "/opt/ros/galactic/lib/python3.8/site-packages",
         "${workspaceFolder}/install/robot_control/lib/python3.8/site-packages",
         "${workspaceFolder}/install/robot_control_interfaces/lib/python3.8/site-packages",
         "${workspaceFolder}/install/airsim_utils/lib/python3.8/site-packages",
@@ -21,9 +21,12 @@
         "/usr/include/opencv4",
         "/usr/include",
         "/usr/local/include",
-        "/opt/ros/foxy/include",
+        "/opt/ros/galactic/include",
         "${workspaceFolder}/src/robot_behavior_tree/include",
         "${workspaceFolder}/install/robot_control_interfaces/include",
+        "${workspaceFolder}/src/navigation2/nav2_behavior_tree/include",
+        "${workspaceFolder}/src/navigation2/nav2_bt_navigator/include",
+        "${workspaceFolder}/src/navigation2/nav2_util/include",
     ],
     "files.associations": {
         "cstddef": "cpp",
