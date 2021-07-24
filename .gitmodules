@@ -1,11 +1,3 @@
-[submodule "src/mavros"]
-	path = src/mavros
-	url = git@github.com:mavlink/mavros.git
-	branch = ros2
-[submodule "src/PX4-Autopilot"]
-	path = src/PX4-Autopilot
-	url = git@github.com:PX4/PX4-Autopilot.git
-	branch = master
 [submodule "src/airsim_utils"]
 	path = src/airsim_utils
 	url = git@github.com:blakermchale/airsim_utils.git
@@ -25,3 +17,14 @@
 [submodule "src/Groot"]
 	path = src/Groot
 	url = git@github.com:BehaviorTree/Groot.git
+[submodule "src/--force"]
+	path = src/--force
+	url = https://github.com/blakermchale/PX4-Autopilot.git
+[submodule "src/PX4-Autopilot"]
+	path = src/PX4-Autopilot
+	url = https://github.com/PX4/PX4-Autopilot.git
+	branch = master
+[submodule "src/robot_ignition"]
+	path = src/robot_ignition
+	url = git@github.com:blakermchale/robot_ignition.git
+	branch = main

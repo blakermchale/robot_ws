@@ -10,6 +10,7 @@ case $ROBOT_TYPE in
             # Build PX4
             cd $_ws/src/PX4-Autopilot
             DONT_RUN=1 make px4_sitl gazebo
+            DONT_RUN=1 make px4_sitl ignition
             cd $_ws
             skipped_pkgs="px4"
         ;;

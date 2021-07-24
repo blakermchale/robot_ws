@@ -26,4 +26,3 @@ export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity}][{function_name}():{line_numbe
 
 # Gazebo setup
 source /usr/share/gazebo/setup.sh
-source $_ws/src/PX4-Autopilot/Tools/setup_gazebo.bash $_ws/src/PX4-Autopilot/ $_ws/src/PX4-Autopilot/build/px4_sitl_default/ > /dev/null
