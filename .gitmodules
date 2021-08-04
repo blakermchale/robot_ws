@@ -17,6 +17,7 @@
 [submodule "src/Groot"]
 	path = src/Groot
 	url = git@github.com:BehaviorTree/Groot.git
+	branch = master
 [submodule "src/PX4-Autopilot"]
 	path = src/PX4-Autopilot
 	url = https://github.com/PX4/PX4-Autopilot.git
