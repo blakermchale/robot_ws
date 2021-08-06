@@ -3,7 +3,9 @@ sudo apt install libignition-common3-graphics-dev -y
 sudo apt install  python3-venv python-is-python3 python3-colcon-common-extensions -y
 # Groot depndencies
 sudo apt install qtbase5-dev libqt5svg5-dev libzmq3-dev libdw-dev -y
+# Ignition
+sudo apt install ros-galactic-ros-ign-gazebo
 
 # sudo apt install python3-rosdep2
-# rosdep udpate
+# rosdep update
 # rosdep install -y -r -q --from-paths src --ignore-src --rosdistro galactic
