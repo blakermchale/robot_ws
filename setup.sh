@@ -4,6 +4,9 @@ _ws="$(builtin cd "`dirname "${BASH_SOURCE[0]}"`" > /dev/null && pwd)"
 export ROBOT_WS=$_ws
 export ROBOT_VENV=$HOME/.venv/robot
 export PX4_AUTOPILOT=$_ws/src/PX4-Autopilot
+# Add venv to path for packages to be recognized
+# https://answers.ros.org/question/371083/how-to-use-python-virtual-environments-with-ros2/
+export PYTHONPATH=$PYTHONPATH:$HOME/.venv/robot/lib/python3.8/site-packages
 
 # Python virtual environment setup
 source $ROBOT_VENV/bin/activate
