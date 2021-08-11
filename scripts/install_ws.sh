@@ -4,7 +4,7 @@ sudo apt install  python3-venv python-is-python3 python3-colcon-common-extension
 # Groot depndencies
 sudo apt install qtbase5-dev libqt5svg5-dev libzmq3-dev libdw-dev -y
 # Ignition
-sudo apt install ros-galactic-ros-ign-gazebo ros-galactic-ros-ign-bridge
+sudo apt install ros-galactic-ros-ign-gazebo ros-galactic-ros-ign-bridge -y
 
 # sudo apt install python3-rosdep2
 # rosdep update
