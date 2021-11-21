@@ -37,6 +37,12 @@ else
     colcon build --symlink-install --cmake-args $_cmake_args --packages-skip $skipped_pkgs --packages-select $1
 fi
 
+find_package () {
+    _package=$1
+    cd $_ws/scripts/docs_help
+    _path=$(python -c 'from modify_launch_rst import find_package; print(find_package('\"$_ws/src\"', '\"$_package\"'))')
+    echo $_path
+}
 # Fix symlink for python3 files venv
 var="#\!\/usr\/bin\/env python3"
 fix_python_install() {
@@ -44,7 +50,29 @@ fix_python_install() {
     for filename in $_ws/install/$package/lib/$package/*; do
         sed -i "1s/.*/$var/" $filename
     done
+    # Replace copied config files with symlinks
+    pkg_path=$(find_package $package)
+    for filename in $_ws/install/$package/share/$package/config/*; do
+        base=$(basename $filename)
+        if [ "$base" = "*" ]; then
+            echo "$package has no config folder, not symlinking"
+        else
+            cd $(dirname $filename)
+            ln -f -s $pkg_path/config/$base $base
+        fi
+    done
+    # Replace copied launch files with symlinks
+    for filename in $_ws/install/$package/share/$package/launch/*; do
+        base=$(basename $filename)
+        if [ "$base" = "*" ]; then
+            echo "$package has no launch folder, not symlinking"
+        else
+            cd $(dirname $filename)
+            ln -f -s $pkg_path/launch/$base $base
+        fi
+    done
 }
+
 fix_python_install robot_control
 
 # source setup
