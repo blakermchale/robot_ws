@@ -26,3 +26,7 @@
 	path = src/robot_ignition
 	url = git@github.com:blakermchale/robot_ignition.git
 	branch = main
+[submodule "src/ros2_utils"]
+	path = src/ros2_utils
+	url = git@github.com:blakermchale/ros2_utils.git
+	branch = main
