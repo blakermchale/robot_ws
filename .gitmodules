@@ -30,3 +30,18 @@
 	path = src/ros2_utils
 	url = git@github.com:blakermchale/ros2_utils.git
 	branch = main
+[submodule "src/cv-ros"]
+	path = src/cv-ros
+	url = git@github.com:blakermchale/cv-ros.git
+[submodule "src/nuav_gazebo"]
+	path = src/nuav_gazebo
+	url = git@gitlab.com:aeronu/nuav/nuav_gazebo.git
+	branch = master
+[submodule "src/robot_gazebo"]
+	path = src/robot_gazebo
+	url = git@github.com:blakermchale/robot_gazebo.git
+	branch = main
+[submodule "src/robot_bringup"]
+	path = src/robot_bringup
+	url = git@github.com:blakermchale/robot_bringup.git
+	branch = main

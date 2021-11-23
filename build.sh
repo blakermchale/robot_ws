@@ -74,6 +74,7 @@ fix_python_install() {
 }
 
 fix_python_install robot_control
+fix_python_install robot_bringup
 
 # source setup
 cd $_ws
