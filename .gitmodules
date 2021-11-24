@@ -33,6 +33,7 @@
 [submodule "src/cv-ros"]
 	path = src/cv-ros
 	url = git@github.com:blakermchale/cv-ros.git
+	branch = main
 [submodule "src/nuav_gazebo"]
 	path = src/nuav_gazebo
 	url = git@gitlab.com:aeronu/nuav/nuav_gazebo.git
