@@ -20,3 +20,9 @@ source ~/.venv/robot/bin/activate
 ```bash
 pip3 install -r requirements.txt
 ```  
+
+### 3. CUDA
+Create link from Windows CUDA lib to local CUDA folder:
+```
+sudo ln -s /mnt/c/Windows/System32/lxss/lib/libcuda.so /usr/local/cuda/lib64/libcuda.so
+```
