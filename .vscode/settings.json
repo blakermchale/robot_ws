@@ -17,6 +17,8 @@
         "${workspaceFolder}/install/cv_ros/lib/python3.8/site-packages",
         "${workspaceFolder}/install/robot_bringup/lib/python3.8/site-packages",
         "${workspaceFolder}/install/darknet_ros_msgs/lib/python3.8/site-packages",
+        "${workspaceFolder}/install/robot_command/lib/python3.8/site-packages",
+        "${workspaceFolder}/install/robot_command_interfaces/lib/python3.8/site-packages",
         "${env:HOME}/.venv/robot/lib/python3.8/site-packages"
     ],
     "C_Cpp.default.includePath": [
@@ -26,9 +28,8 @@
         "/opt/ros/galactic/include",
         "${workspaceFolder}/src/robot_behavior_tree/include",
         "${workspaceFolder}/install/robot_control_interfaces/include",
-        "${workspaceFolder}/src/navigation2/nav2_behavior_tree/include",
-        "${workspaceFolder}/src/navigation2/nav2_bt_navigator/include",
-        "${workspaceFolder}/src/navigation2/nav2_util/include",
+        "${workspaceFolder}/install/robot_command_interfaces/include",
+        "${workspaceFolder}/install/darknet_ros_msgs/include",
     ],
     "files.associations": {
         "cstddef": "cpp",

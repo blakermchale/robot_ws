@@ -46,3 +46,7 @@
 	path = src/robot_bringup
 	url = git@github.com:blakermchale/robot_bringup.git
 	branch = main
+[submodule "src/robot-command"]
+	path = src/robot-command
+	url = git@github.com:blakermchale/robot-command.git
+	branch = main
