@@ -8,6 +8,9 @@ export PX4_AUTOPILOT=$_ws/src/PX4-Autopilot
 # https://answers.ros.org/question/371083/how-to-use-python-virtual-environments-with-ros2/
 export PYTHONPATH=$PYTHONPATH:$HOME/.venv/robot/lib/python3.8/site-packages
 
+# Change DDS implementation
+# export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp  # rmw_fastrtps_cpp, rmw_fastrtps_dynamic_cpp, rmw_cyclonedds_cpp, rmw_connextdds
+
 # Python virtual environment setup
 source $ROBOT_VENV/bin/activate
 

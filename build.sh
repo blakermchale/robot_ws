@@ -12,7 +12,7 @@ case $ROBOT_TYPE in
             DONT_RUN=1 make px4_sitl gazebo
             DONT_RUN=1 make px4_sitl ignition
             cd $_ws
-            skipped_pkgs="px4"
+            skipped_pkgs="px4 Darknet"
         ;;
     esac
     ;;&
