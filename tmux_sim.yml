@@ -1,0 +1,24 @@
+name: robot_sim
+root: <%= ENV["ROBOT_WS"] %>
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+pre_window:
+  - source <%= ENV["ROBOT_WS"] %>/.profile
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+tmux_options: -f <%= ENV["ROBOT_WS"] %>/.tmux.conf
+
+
+startup_window: command_center
+
+windows:
+  # - recording studio:
+  #     layout: main-vertical
+  #     panes:
+  #       - rosbag record: ./scripts/record_topics.sh <%= ENV["USER"] %>
+  - command_center:
+      layout: main-vertical
+      panes:
+        - field launch: ros2 launch robot_bringup run_vehicles.launch.py
+        - first shell: ros2 run robot_control shell
+  

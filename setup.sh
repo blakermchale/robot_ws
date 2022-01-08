@@ -23,7 +23,18 @@ source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 export _colcon_cd_root=$_ws  # set root of colcon cd to this workspace
 
 # Convenience commands
-alias killros2='killall -9 gzserver gzclient _ros2_daemon micrortps_agent px4'
+alias killws='killall -9 gzserver gzclient _ros2_daemon micrortps_agent px4 ros2 darknet_ros; tmux kill-server'
+tmuxstart () {
+    tmux_proj=$1
+    if [ -z "$1" ]
+    then
+        tmux_proj="$_ws/tmux_sim.yml"
+    fi
+    tmuxinator debug -p $tmux_proj > /tmp/tmux_robot_ws.sh
+    chmod +x /tmp/tmux_robot_ws.sh
+    sed -i '/^.*tmux .* send-keys .*/i sleep 0.1' /tmp/tmux_robot_ws.sh # need to add wait so terminals get time to start up
+    /tmp/tmux_robot_ws.sh
+}
 
 # ROS variables, adds color to logging
 export RCUTILS_COLORIZED_OUTPUT=1
