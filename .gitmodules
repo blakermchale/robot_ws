@@ -50,7 +50,3 @@
 	path = src/robot-command
 	url = git@github.com:blakermchale/robot-command.git
 	branch = main
-[submodule "src/topic_tools"]
-	path = src/topic_tools
-	url = git@github.com:ros-tooling/topic_tools.git
-	branch = main
