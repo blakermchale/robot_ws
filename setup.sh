@@ -23,7 +23,7 @@ source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 export _colcon_cd_root=$_ws  # set root of colcon cd to this workspace
 
 # Convenience commands
-alias killws='killall -9 gzserver gzclient _ros2_daemon micrortps_agent px4 ros2 darknet_ros python3; tmux kill-server'
+alias killws='killall -9 gzserver gzclient _ros2_daemon micrortps_agent px4 ros2 darknet_ros python3 ruby; tmux kill-server'
 tmuxstart () {
     tmux_proj=$1
     if [ -z "$1" ]
