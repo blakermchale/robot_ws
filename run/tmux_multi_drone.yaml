@@ -12,19 +12,16 @@ tmux_options: -f <%= ENV["ROBOT_WS"] %>/.tmux.conf
 startup_window: command_center
 
 windows:
-  # - recording studio:
-  #     layout: main-vertical
-  #     panes:
-  #       - rosbag record: ./scripts/record_topics.sh <%= ENV["USER"] %>
   - command_center:
       layout: main-vertical
       panes:
-        - field launch: ros2 launch robot_bringup run_vehicles.launch.py
+        - field launch: ros2 launch robot_bringup run_vehicles.launch.py nb:=3
         - main shell: ros2 run robot_control shell
         - commander shell: ros2 run robot_command shell
 
   - extra:
-      layout: main-vertical
+      layout: even-vertical
       panes:
-        - darknet: ros2 launch robot_bringup darknet_ros.launch.py
-        - rviz: rviz2 -d <%= ENV["ROBOT_WS"] %>/rviz/drone.rviz
+        - vehicle 0 shell: ros2 run robot_control shell -n drone_0
+        - vehicle 1 shell: ros2 run robot_control shell -n drone_1
+        - vehicle 1 shell: ros2 run robot_control shell -n drone_2
