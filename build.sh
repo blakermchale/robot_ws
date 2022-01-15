@@ -27,6 +27,13 @@ case $ROBOT_TYPE in
     ;;
 esac
 
+# Check if AirSim is set and stack this workspace on top of it
+if [[ -z "${AirSimPath}" ]]; then
+  echo "AirSimPath is undefined not stacking on top"
+else
+  source $AirSimPath/ros2/install/setup.bash
+fi
+
 # TODO: add support for building with --verbose or -v arg, this would add `--event-handlers console_cohesion+` to the end of colcon build
 # Build ROS2 packages
 cd $_ws
