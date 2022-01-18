@@ -32,7 +32,7 @@ tmuxstart () {
     fi
     tmuxinator debug -p $tmux_proj > /tmp/tmux_robot_ws.sh
     chmod +x /tmp/tmux_robot_ws.sh
-    sed -i '/^.*tmux .* send-keys .*/i sleep 0.1' /tmp/tmux_robot_ws.sh # need to add wait so terminals get time to start up
+    sed -i '/^.*tmux .* send-keys .*/i sleep 0.5' /tmp/tmux_robot_ws.sh # need to add wait so terminals get time to start up
     /tmp/tmux_robot_ws.sh
 }
 
