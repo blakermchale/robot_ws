@@ -1,0 +1,4 @@
+# Example configuration file for `ROBOT_CONTROL_CONFIG`
+log_level: "debug"
+team_yaml: "$(env ROBOT_WS)/examples/drone/team.yaml"
+vehicle_type: "drone"  # drone, rover, plane
