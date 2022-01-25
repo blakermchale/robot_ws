@@ -90,6 +90,10 @@ Visualization Manager:
       Frame Timeout: 5
       Frames:
         All Enabled: true
+        drone_0:
+          Value: true
+        drone_0/realsense:
+          Value: true
         drone_1:
           Value: true
         drone_1/realsense:
@@ -107,6 +111,9 @@ Visualization Manager:
       Show Names: true
       Tree:
         map:
+          drone_0:
+            drone_0/realsense:
+              {}
           drone_1:
             drone_1/realsense:
               {}
@@ -341,7 +348,7 @@ Visualization Manager:
     - Alpha: 1
       Buffer Length: 1
       Class: rviz_default_plugins/Path
-      Color: 25; 255; 0
+      Color: 252; 175; 62
       Enabled: true
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
@@ -369,7 +376,7 @@ Visualization Manager:
     - Alpha: 1
       Buffer Length: 1
       Class: rviz_default_plugins/Path
-      Color: 25; 255; 0
+      Color: 252; 233; 79
       Enabled: true
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
@@ -393,6 +400,19 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /drone_2/path
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/Polygon
+      Color: 52; 101; 164
+      Enabled: true
+      Name: Polygon
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /hq/search/area
       Value: true
   Enabled: true
   Global Options:
@@ -440,7 +460,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 9.541621208190918
+      Distance: 12.111030578613281
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -476,5 +496,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1244
-  X: 1316
+  X: 1209
   Y: 27

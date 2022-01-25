@@ -1,2 +1,3 @@
 -r src/robot-control/robot_control/requirements.txt
 -r src/cv-ros/cv_ros/requirements.txt
+-r src/robot-command/robot_command/requirements.txt
