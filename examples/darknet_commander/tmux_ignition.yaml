@@ -17,7 +17,7 @@ windows:
       panes:
         - field launch: ros2 launch robot_bringup run_vehicles.launch.py sim:=ignition model_name:=x3_ignition_realsense ign_world:=darknet.sdf api:=inherent
         - main shell: ros2 run robot_control shell
-        - commander shell: ros2 run robot_command shell
+        - commander shell: ros2 run robot_command commander_shell
 
   - extra:
       layout: main-vertical

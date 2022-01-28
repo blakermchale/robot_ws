@@ -17,7 +17,7 @@ windows:
       panes:
         - field launch: ros2 launch robot_bringup run_vehicles.launch.py sim:=gazebo model_name:=iris_realsense gz_world:=darknet_runway.world api:=mavros
         - main shell: ros2 run robot_control shell
-        - commander shell: ros2 run robot_command shell
+        - commander shell: ros2 run robot_command commander_shell
 
   - extra:
       layout: main-vertical

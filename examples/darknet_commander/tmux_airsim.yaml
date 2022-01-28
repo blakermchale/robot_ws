@@ -17,7 +17,7 @@ windows:
       panes:
         - field launch: ros2 launch robot_bringup run_vehicles.launch.py sim:=airsim api:=inherent environment:='D:\git\external\AirSim\Unreal\Environments\Blocks426\output\Blocks\run.bat' pawn_bp:="Class'/Game/NUAV/Blueprints/BP_FlyingPawn.BP_FlyingPawn_C'"
         - main shell: ros2 run robot_control shell
-        - commander shell: ros2 run robot_command shell
+        - commander shell: ros2 run robot_command commander_shell
 
   - extra:
       layout: main-vertical

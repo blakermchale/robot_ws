@@ -17,7 +17,7 @@ windows:
       panes:
         - field launch: ros2 launch robot_bringup run_vehicles.launch.py sim:=ignition model_name:=x3_ignition ign_world:=runway.sdf api:=inherent
         - main shell: ros2 run robot_control shell -n drone_0
-        - commander shell: ros2 run robot_command shell -n drone_0
+        - commander shell: ros2 run robot_command commander_shell -n drone_0
 
   - extra:
       layout: main-vertical
