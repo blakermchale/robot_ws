@@ -1,0 +1,25 @@
+name: robot_sim
+root: <%= ENV["ROBOT_WS"] %>
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+pre_window:
+  - source <%= ENV["ROBOT_WS"] %>/.profile
+  - export ROBOT_CONTROL_CONFIG=<%= ENV["ROBOT_WS"] %>/examples/drone/robot.yaml
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+tmux_options: -f <%= ENV["ROBOT_WS"] %>/.tmux.conf
+
+startup_window: command_center
+
+windows:
+  - command_center:
+      layout: main-vertical
+      panes:
+        - field launch: ros2 launch robot_bringup run_vehicles.launch.py sim:=airsim api:=inherent environment:='D:\git\external\AirSim\Unreal\Environments\Blocks426\output\Blocks\run.bat' pawn_bp:="Class'/Game/NUAV/Blueprints/BP_FlyingPawn.BP_FlyingPawn_C'"
+        - main shell: ros2 run robot_control shell -n drone_0
+        - commander shell: ros2 run robot_command commander_shell -n drone_0
+
+  - extra:
+      layout: main-vertical
+      panes:
+        - rviz: rviz2 -d <%= ENV["ROBOT_WS"] %>/rviz/drone.rviz
