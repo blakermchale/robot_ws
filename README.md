@@ -28,6 +28,8 @@ https://linoxide.com/how-to-install-cuda-on-ubuntu/
 Create link from Windows CUDA lib to local CUDA folder:
 ```
 sudo ln -s /mnt/c/Windows/System32/lxss/lib/libcuda.so /usr/local/cuda/lib64/libcuda.so
-```
+```  
+#### Extra
+Had to add CMAKE_CUDA_COMPILER to build command. This shouldn't be set by the user.
 ## Interesting Resources
 https://docs.ros.org/en/rolling/Related-Projects/Nvidia-ROS2-Projects.html  

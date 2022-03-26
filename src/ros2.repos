@@ -1,0 +1,55 @@
+# List of repositories to use within your workspace
+# See https://github.com/dirk-thomas/vcstool
+repositories:
+  robot-control:
+    type: git
+    url: git@github.com:blakermchale/robot-control.git
+    version: main
+  ros2_utils:
+    type: git
+    url: git@github.com:blakermchale/ros2_utils.git
+    version: main
+  robot-command:
+    type: git
+    url: git@github.com:blakermchale/robot-command.git
+    version: main
+  robot_ignition:
+    type: git
+    url: git@github.com:blakermchale/robot_ignition.git
+    version: main
+  robot_gazebo:
+    type: git
+    url: git@github.com:blakermchale/robot_gazebo.git
+    version: main
+  robot_bringup:
+    type: git
+    url: git@github.com:blakermchale/robot_bringup.git
+    version: main
+  robot_behavior_tree:
+    type: git
+    url: git@github.com:blakermchale/robot_behavior_tree.git
+    version: main
+  PX4-Autopilot:
+    type: git
+    url: git@github.com:PX4/PX4-Autopilot.git
+    version: master
+  nuav_gazebo:
+    type: git
+    url: git@gitlab.com:aeronu/nuav/nuav_gazebo.git
+    version: master
+  Groot:
+    type: git
+    url: git@github.com:BehaviorTree/Groot.git
+    version: master
+  cv-ros:
+    type: git
+    url: git@github.com:blakermchale/cv-ros.git
+    version: main
+  airsim-ros:
+    type: git
+    url: git@github.com:blakermchale/airsim-ros.git
+    version: main
+  airsim_utils:
+    type: git
+    url: git@github.com:blakermchale/airsim_utils.git
+    version: main
