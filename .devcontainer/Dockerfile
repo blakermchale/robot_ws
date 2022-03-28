@@ -239,6 +239,8 @@ RUN apt install ros-${ROS_DISTRO}-mavros -y
 COPY ./install_geographiclib_datasets.sh ./install_geographiclib_datasets.sh
 RUN ./install_geographiclib_datasets.sh && rm ./install_geographiclib_datasets.sh
 
+ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
+
 # RUN echo "source /opt/ros/galactic/setup.bash" >> /home/ros/.bashrc
 COPY ./setup.sh ./setup.sh
 RUN cat ./setup.sh >> /home/ros/.bashrc && rm ./setup.sh
