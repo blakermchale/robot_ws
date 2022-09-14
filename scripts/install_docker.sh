@@ -11,3 +11,7 @@ sudo apt-get update
 sudo apt-get install -y nvidia-docker2
 
 sudo systemctl restart docker
+
+if [[ $(grep Microsoft /proc/version) ]]; then
+
+fi

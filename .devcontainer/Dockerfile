@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.4.2-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.7.0-cudnn8-devel-ubuntu22.04
 RUN useradd -ms /bin/bash ros -g root -G sudo -p "$(openssl passwd -1 ros)"
 
 ##########################
@@ -47,6 +47,7 @@ RUN apt-get update && apt-get -y --quiet --no-install-recommends install \
 		wget \
 		xsltproc \
 		zip \
+		libgstreamer-plugins-base1.0-dev \
 	&& apt-get -y autoremove \
 	&& apt-get clean autoclean \
 	&& rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*
@@ -76,10 +77,10 @@ RUN wget -q https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.1
 RUN useradd --shell /bin/bash -u 1001 -c "" -m user && usermod -a -G dialout user
 
 # setup virtual X server
-RUN mkdir /tmp/.X11-unix && \
-	chmod 1777 /tmp/.X11-unix && \
-	chown -R root:root /tmp/.X11-unix
-ENV DISPLAY :99
+# RUN mkdir /tmp/.X11-unix && \
+# 	chmod 1777 /tmp/.X11-unix && \
+# 	chown -R root:root /tmp/.X11-unix
+# ENV DISPLAY :99
 
 ENV CCACHE_UMASK=000
 ENV FASTRTPSGEN_DIR="/usr/local/bin/"
@@ -101,7 +102,7 @@ EXPOSE 14557/udp
 # Install ros2
 ###############
 # https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_ros2-galactic
-ENV ROS_DISTRO galactic
+ENV ROS_DISTRO humble
 
 # setup ros2 keys
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
@@ -236,10 +237,14 @@ RUN pip3 install airsim navpy cmd2
 
 # TODO: install geographiclib datasets on start, requires package dependencies to be installed (specifically geographiclib)
 RUN apt install ros-${ROS_DISTRO}-mavros -y
-COPY ./install_geographiclib_datasets.sh ./install_geographiclib_datasets.sh
+COPY ./scripts/install_geographiclib_datasets.sh ./install_geographiclib_datasets.sh
 RUN ./install_geographiclib_datasets.sh && rm ./install_geographiclib_datasets.sh
 
-# RUN echo "source /opt/ros/galactic/setup.bash" >> /home/ros/.bashrc
-COPY ./setup.sh ./setup.sh
+# RUN echo "source /opt/ros/humble/setup.bash" >> /home/ros/.bashrc
+COPY .devcontainer/setup.sh ./setup.sh
 RUN cat ./setup.sh >> /home/ros/.bashrc && rm ./setup.sh
 
+ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
+COPY src /tmp/src
+RUN cd /tmp && apt-get update && rosdep update && rosdep install --from-paths src --ignore-src --skip-keys=mav_msgs --skip-keys rostest --skip-keys tf --skip-keys rospy --skip-keys roscpp --skip-keys catkin --skip-keys message_runtime --skip-keys message_generation -y --as-root apt:false
+RUN rm -rf /tmp/src

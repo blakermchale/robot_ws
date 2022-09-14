@@ -5,7 +5,7 @@ if [[ -z "${ROS2_PROFILE}" ]]; then
 else
   source $ROS2_PROFILE  # ROS2 is setup in other location
 fi
-source /opt/ros/galactic/setup.bash
+source /opt/ros/humble/setup.bash
 
 _ws="$(builtin cd "`dirname "${BASH_SOURCE[0]}"`" > /dev/null && pwd)"
 source $_ws/setup.sh
