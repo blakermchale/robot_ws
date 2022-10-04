@@ -1,3 +1,6 @@
+# Docker
+.devcontainer/devcontainer.json
+
 #! ROS
 devel/
 logs/

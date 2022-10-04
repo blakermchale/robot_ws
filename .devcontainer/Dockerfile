@@ -106,7 +106,6 @@ ENV ROS_DISTRO humble
 
 # setup ros2 keys
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-
 # setup sources.list
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
@@ -166,7 +165,7 @@ RUN colcon mixin add default \
 # Installing new cmake https://askubuntu.com/a/865294
 # RUN apt purge -y cmake
 RUN apt update && apt install -y software-properties-common lsb-release && apt clean all
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
 RUN apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
 RUN apt update
 RUN apt install -y kitware-archive-keyring
@@ -245,6 +244,7 @@ COPY .devcontainer/setup.sh ./setup.sh
 RUN cat ./setup.sh >> /home/ros/.bashrc && rm ./setup.sh
 
 ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
+RUN apt install ros-${ROS_DISTRO}-ros-ign-bridge ros-${ROS_DISTRO}-ros-ign-gazebo -y
 COPY src /tmp/src
-RUN cd /tmp && apt-get update && rosdep update && rosdep install --from-paths src --ignore-src --skip-keys=mav_msgs --skip-keys rostest --skip-keys tf --skip-keys rospy --skip-keys roscpp --skip-keys catkin --skip-keys message_runtime --skip-keys message_generation -y --as-root apt:false
+RUN cd /tmp && apt-get update && rosdep update && rosdep install --from-paths src --ignore-src --skip-keys=ros_ign_bridge --skip-keys=ros_ign_gazebo --skip-keys=mav_msgs --skip-keys rostest --skip-keys tf --skip-keys rospy --skip-keys roscpp --skip-keys catkin --skip-keys message_runtime --skip-keys message_generation -y --as-root apt:false
 RUN rm -rf /tmp/src
