@@ -34,14 +34,6 @@
 	path = src/cv-ros
 	url = git@github.com:blakermchale/cv-ros.git
 	branch = main
-[submodule "src/nuav_gazebo"]
-	path = src/nuav_gazebo
-	url = git@gitlab.com:aeronu/nuav/nuav_gazebo.git
-	branch = master
-[submodule "src/robot_gazebo"]
-	path = src/robot_gazebo
-	url = git@github.com:blakermchale/robot_gazebo.git
-	branch = main
 [submodule "src/robot_bringup"]
 	path = src/robot_bringup
 	url = git@github.com:blakermchale/robot_bringup.git
@@ -50,3 +42,9 @@
 	path = src/robot-command
 	url = git@github.com:blakermchale/robot-command.git
 	branch = main
+[submodule "src/third_party/openrobotics_darknet_ros"]
+	path = src/third_party/openrobotics_darknet_ros
+	url = https://github.com/ros2/openrobotics_darknet_ros.git
+[submodule "src/third_party/darknet"]
+	path = src/third_party/darknet
+	url = https://github.com/AlexeyAB/darknet.git

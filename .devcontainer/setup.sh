@@ -13,7 +13,7 @@ source /usr/share/colcon_cd/function/colcon_cd.sh
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 
 # Convenience commands
-alias killws='killall -9 gzserver gzclient _ros2_daemon micrortps_agent px4 ros2 darknet_ros python3 ruby; tmux kill-server'
+alias killws='killall5 -9 gzserver gzclient _ros2_daemon micrortps_agent px4 ros2 darknet_ros python3 ruby; tmux kill-server'
 tmuxstart () {
     tmux_proj=$1
     if [ -z "$1" ]
@@ -31,4 +31,4 @@ export RCUTILS_COLORIZED_OUTPUT=1
 # export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
 export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity}][{function_name}():{line_number}]: {message}"
 
-source /usr/share/gazebo/setup.sh
+# source /usr/share/gazebo/setup.sh

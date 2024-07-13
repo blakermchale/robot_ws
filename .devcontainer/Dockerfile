@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.7.0-cudnn8-devel-ubuntu22.04
+FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 RUN useradd -ms /bin/bash ros -g root -G sudo -p "$(openssl passwd -1 ros)"
 
 ##########################
@@ -62,10 +62,10 @@ RUN cd /usr/src/gtest \
 # Install Python 3 pip build dependencies first.
 RUN python3 -m pip install --upgrade pip wheel setuptools
 
-# Python 3 dependencies installed by pip
-RUN python3 -m pip install argparse argcomplete coverage cerberus empy jinja2 kconfiglib \
-		matplotlib==3.0.* numpy nunavut>=1.1.0 packaging pkgconfig pyros-genmsg pyulog \
-		pyyaml requests serial six toml psutil pyulog wheel jsonschema pynacl
+# # Python 3 dependencies installed by pip
+# RUN python3 -m pip install argparse argcomplete coverage cerberus empy jinja2 kconfiglib \
+# 		matplotlib==3.0.* numpy nunavut>=1.1.0 packaging pkgconfig pyros-genmsg pyulog \
+# 		pyyaml requests serial six toml psutil pyulog wheel jsonschema pynacl
 
 # astyle v3.1
 RUN wget -q https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.1/astyle_3.1_linux.tar.gz -O /tmp/astyle.tar.gz \
@@ -229,6 +229,9 @@ ENV QT_X11_NO_MITSHM=1
 ARG WORKSPACE
 ENV WORKSPACE ${WORKSPACE}
 
+#TODO: test the colcon clean
+RUN apt install python3-colcon-clean -y
+
 #TODO: add packages to rosdep http://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
 # rosdep tag info https://www.ros.org/reps/rep-0140.html#depend-multiple
 RUN pip3 install msgpack-rpc-python
@@ -244,7 +247,23 @@ COPY .devcontainer/setup.sh ./setup.sh
 RUN cat ./setup.sh >> /home/ros/.bashrc && rm ./setup.sh
 
 ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
-RUN apt install ros-${ROS_DISTRO}-ros-ign-bridge ros-${ROS_DISTRO}-ros-ign-gazebo -y
+# Install gazebo from stable source for WSL fix
+# NOTE: can remove once gz >=8 is updated on ros packages
+# https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu
+RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
+	&& apt update \
+	&& apt install ros-humble-ros-gzharmonic -y
+# RUN apt install ros-humble-ros-gzharmonic-sim ros-humble-gzharmonic-bridge
+# RUN apt install ros-${ROS_DISTRO}-ros-ign-bridge ros-${ROS_DISTRO}-ros-ign-gazebo -y
 COPY src /tmp/src
-RUN cd /tmp && apt-get update && rosdep update && rosdep install --from-paths src --ignore-src --skip-keys=ros_ign_bridge --skip-keys=ros_ign_gazebo --skip-keys=mav_msgs --skip-keys rostest --skip-keys tf --skip-keys rospy --skip-keys roscpp --skip-keys catkin --skip-keys message_runtime --skip-keys message_generation -y --as-root apt:false
+# cuda-dev errors on WSL, part of darknet
+RUN cd /tmp && apt-get update && rosdep update && rosdep install --from-paths src --ignore-src  \
+	--skip-keys=nvidia-cuda-dev --skip-keys=nvidia-cuda \
+	--skip-keys=ros_ign_bridge --skip-keys=ros_ign_gazebo \
+	--skip-keys=ros_gz_sim --skip-keys=ros_gz_bridge \
+	--skip-keys=mav_msgs \
+	--skip-keys rostest --skip-keys tf --skip-keys rospy --skip-keys roscpp --skip-keys catkin \
+	--skip-keys message_runtime --skip-keys message_generation \
+	-y --as-root apt:false
 RUN rm -rf /tmp/src

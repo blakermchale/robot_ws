@@ -1,0 +1,5 @@
+{
+    "cmake-args":[
+        "-DENABLE_DEPLOY_CUSTOM_CMAKE_MODULES=ON"
+    ]
+}

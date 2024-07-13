@@ -35,7 +35,7 @@ def main():
     final = base.copy()
     merge_dict(final, extra)
     with open(os.path.abspath(os.path.join(dir, "..", "..", ".devcontainer", "devcontainer.json")), "w") as out:
-        json.dump(final, out, indent=4, quote_keys=True)
+        json.dump(final, out, indent=4, quote_keys=True, trailing_commas=False)
 
 
 if __name__=="__main__":
