@@ -28,7 +28,7 @@ tmuxstart () {
     tmux_proj=$1
     if [ -z "$1" ]
     then
-        tmux_proj="$_ws/tmux_sim.yml"
+        tmux_proj="$_ws/tmux_sim.yaml"
     fi
     tmuxinator debug -p $tmux_proj > /tmp/tmux_robot_ws.sh
     chmod +x /tmp/tmux_robot_ws.sh

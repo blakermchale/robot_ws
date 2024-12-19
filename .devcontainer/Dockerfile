@@ -253,8 +253,8 @@ ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
 RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
 	&& apt update \
-	&& apt install ros-humble-ros-gzharmonic -y
-# RUN apt install ros-humble-ros-gzharmonic-sim ros-humble-gzharmonic-bridge
+	&& apt install ros-${ROS_DISTRO}-ros-gzharmonic -y
+# RUN apt install ros-${ROS_DISTRO}-ros-gzharmonic-sim ros-${ROS_DISTRO}-gzharmonic-bridge
 # RUN apt install ros-${ROS_DISTRO}-ros-ign-bridge ros-${ROS_DISTRO}-ros-ign-gazebo -y
 COPY src /tmp/src
 # cuda-dev errors on WSL, part of darknet
