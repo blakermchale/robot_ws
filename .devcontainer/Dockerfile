@@ -130,6 +130,8 @@ RUN apt-get install --quiet --no-install-recommends -y \
 	&& apt-get clean autoclean \
 	&& rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*
 
+# NOTE: fix for this bug https://community.cyberpanel.net/t/solved-cyberpanel-update-error-with-python-typeerror-canonicalize-version-got-an-unexpected-keyword-argument-strip-trailing-zero/54701
+RUN pip3 install packaging==22
 # Install Python 3 packages needed for testing
 RUN pip3 install -U \
 		argcomplete \
@@ -257,6 +259,7 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
 # RUN apt install ros-${ROS_DISTRO}-ros-gzharmonic-sim ros-${ROS_DISTRO}-gzharmonic-bridge
 # RUN apt install ros-${ROS_DISTRO}-ros-ign-bridge ros-${ROS_DISTRO}-ros-ign-gazebo -y
 COPY src /tmp/src
+RUN rm -rf /tmp/src/PX4-Autopilot
 # cuda-dev errors on WSL, part of darknet
 RUN cd /tmp && apt-get update && rosdep update && rosdep install --from-paths src --ignore-src  \
 	--skip-keys=nvidia-cuda-dev --skip-keys=nvidia-cuda \
@@ -267,3 +270,15 @@ RUN cd /tmp && apt-get update && rosdep update && rosdep install --from-paths sr
 	--skip-keys message_runtime --skip-keys message_generation \
 	-y --as-root apt:false
 RUN rm -rf /tmp/src
+
+RUN --mount=type=cache,target=/var/cache/apt \
+apt-get update && apt-get install -y \
+	gosu \
+	sudo \
+	udev
+ARG USERNAME=ros
+ENV USERNAME=${USERNAME}
+RUN mkdir -p /usr/local/bin/.devcontainer/
+COPY .devcontainer/entrypoint.sh /usr/local/bin/.devcontainer/
+ENTRYPOINT [ "/usr/local/bin/.devcontainer/entrypoint.sh" ]
+CMD [ "sleep", "infinity" ]

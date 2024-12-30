@@ -153,4 +153,5 @@
         ".vscode-insiders",
         ".devcontainer/devcontainer.json"
     ],
+    "cmake.sourceDirectory": "/workspaces/robot_ws/src/Groot",
 }
