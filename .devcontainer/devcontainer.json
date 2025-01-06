@@ -16,10 +16,16 @@
         "--security-opt=apparmor:unconfined",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
         "--gpus=all",
-        "--entrypoint=/usr/local/bin/.devcontainer/entrypoint.sh"
+        "--entrypoint=/usr/local/bin/.devcontainer/entrypoint.sh",
+        "--volume=/mnt/wslg:/mnt/wslg",
+		"--volume=/usr/lib/wsl:/usr/lib/wsl",
+		"--device=/dev/dxg"
     ],
     "containerEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}"
+		"DISPLAY": "${localEnv:DISPLAY}",
+        "WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
+		"PULSE_SERVER": "${localEnv:PULSE_SERVER}"
 	 },
     "mounts": [
         "type=bind,source=${localEnv:HOME}/.ssh,target=/home/ros/.ssh,readonly"

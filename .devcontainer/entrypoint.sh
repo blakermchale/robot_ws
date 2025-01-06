@@ -25,6 +25,7 @@
 adduser ${USERNAME} video >/dev/null
 adduser ${USERNAME} plugdev >/dev/null
 adduser ${USERNAME} sudo  >/dev/null
+adduser ${USERNAME} kvm  >/dev/null  # WSL specific
 
 groupmod -g 138 sgx
 
