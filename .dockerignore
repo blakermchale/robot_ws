@@ -1,0 +1,4 @@
+# ignore everything except package.xmls
+src/*
+!src/**/package.xml
+src/PX4-Autopilot/

@@ -25,6 +25,7 @@ pip3 install -r requirements.txt
 #### Ubuntu
 https://linoxide.com/how-to-install-cuda-on-ubuntu/  
 #### WSL
+Install from here https://ubuntu.com/tutorials/enabling-gpu-acceleration-on-ubuntu-on-wsl2-with-the-nvidia-cuda-platform#3-install-nvidia-cuda-on-ubuntu  
 Create link from Windows CUDA lib to local CUDA folder:
 ```
 sudo ln -s /mnt/c/Windows/System32/lxss/lib/libcuda.so /usr/local/cuda/lib64/libcuda.so

@@ -23,12 +23,12 @@ source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 # export _colcon_cd_root=$_ws  # set root of colcon cd to this workspace
 
 # Convenience commands
-alias killws='killall -9 gzserver gzclient _ros2_daemon micrortps_agent px4 ros2 darknet_ros python3 ruby; tmux kill-server'
+alias killws='killall5 -9 gzserver gzclient _ros2_daemon micrortps_agent px4 ros2 darknet_ros python3 ruby; tmux kill-server'
 tmuxstart () {
     tmux_proj=$1
     if [ -z "$1" ]
     then
-        tmux_proj="$_ws/tmux_sim.yml"
+        tmux_proj="$_ws/tmux_sim.yaml"
     fi
     tmuxinator debug -p $tmux_proj > /tmp/tmux_robot_ws.sh
     chmod +x /tmp/tmux_robot_ws.sh
@@ -42,4 +42,4 @@ export RCUTILS_COLORIZED_OUTPUT=1
 export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity}][{function_name}():{line_number}]: {message}"
 
 # Gazebo setup
-source /usr/share/gazebo/setup.sh
+# source /usr/share/gazebo/setup.sh

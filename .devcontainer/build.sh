@@ -9,22 +9,22 @@ case $ROBOT_TYPE in
         "")
             echo "Adding simulation steps..."
             # Build PX4
-            cd $_ws/src/PX4-Autopilot && \
-            DONT_RUN=1 make px4_sitl gazebo && \
-            DONT_RUN=1 make px4_sitl ignition && \
-            cd $_ws && \
-            skipped_pkgs="px4 Darknet"
+            # cd $_ws/src/PX4-Autopilot \
+            # && DONT_RUN=1 make px4_sitl gazebo \
+            # DONT_RUN=1 make px4_sitl ign_gazebo && \
+            cd $_ws
+            skipped_pkgs="px4 Darknet airsim_ros robot_behavior_tree darknet_ros"
         ;;
     esac
     ;;&
     darknet)
         echo "Adding darknet steps..."
-        skipped_pkgs="px4"
+        skipped_pkgs="px4 airsim_ros"
         _cmake_args+=" -DDARKNET_CUDA=Off"
     ;;
     darknet-cuda)
         echo "Adding darknet with CUDA..."
-        skipped_pkgs="px4"
+        skipped_pkgs="px4 airsim_ros"
     ;;
 esac
 
