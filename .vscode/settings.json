@@ -89,7 +89,15 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "expected": "cpp",
+        "format": "cpp",
+        "charconv": "cpp",
+        "stdfloat": "cpp",
+        "cfcntl": "cpp",
+        "csched": "cpp",
+        "cstdbool": "cpp",
+        "cunistd": "cpp"
     },
     "python.analysis.extraPaths": [
         "/opt/ros/${env:ROS_DISTRO}/lib/python3.10/site-packages/"

@@ -9,9 +9,12 @@ Run (separate terminals):
 ros2 launch robot_behavior_tree runner.launch.py namespace:=drone_0
 ```
 ```bash
-ros2 action send_goal /drone_0/run_bt robot_control_interfaces/action/RunBT {}
+ros2 action send_goal /drone_0/behavior_server  btcpp_ros2_interfaces/action/ExecuteTree "{'target_tree': 'MainSquare'}"
 ```
 ## Groot example
+
+TODO: Update this for Groot2!
+
 1. Run `Groot`:
 ```bash
 ros2 run groot Groot --mode monitor
